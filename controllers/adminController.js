@@ -156,7 +156,7 @@
             podcast.duration = req.body.duration;
             podcast.stub = req.body.stub;
             podcast.filename = req.body.blob;
-            podcast.season = getSeason(podcast.published);
+            podcast.season = getSeason(moment(podcast.published));
             
             data.insertPodcast(podcast, function(err, next){
                 if(err) {
