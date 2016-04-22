@@ -28,7 +28,6 @@
         }
         
         app.get("/", function (req, res) {
-            eless.submitFeatureUsage("/");
             data.getLatestPodcast(function(err, pod){
                 if(err) {
                     console.log(err);
@@ -45,7 +44,6 @@
         });
         
         app.get("/team", function (req, res) {
-            eless.submitFeatureUsage("/team");
             res.render("team");
         });
         
