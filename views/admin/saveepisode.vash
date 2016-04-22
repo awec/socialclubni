@@ -1,0 +1,39 @@
+@html.extend("layout", function(model){
+    @html.block("main", function(model){
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <form action="/admin/episode/create" method="POST">
+                        <div class="form-group">
+                            <label for="inputTitle">Title</label>
+                            <input type="text" class="form-control" id="inputTitle" name="title" value="@model.mixcloud.title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputSubtitle">Subtitle</label>
+                            <input type="text" class="form-control" id="inputSubtitle" name="subtitle" value="@model.mixcloud.subtitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputSubtitle">Summary</label>
+                            <textarea name="summary" id="inputSummary" class="form-control" rows="6" required>@model.mixcloud.summary</textarea>
+                        </div>
+                        <div class="form-group">
+                            <select name="blob">
+                                @model.episodes.forEach(function(episode) {
+                                    <option id="@episode.title">@episode.title</option>
+                                })
+                            </select>
+                        </div>
+                        <input type="hidden" name="stub" value="@model.mixcloud.stub" />
+                        <input type="hidden" name="published" value="@model.mixcloud.published" />
+                        <input type="hidden" name="duration" value="@model.mixcloud.duration" />
+                        <button type="submit" class="btn btn-default">Upload and Save</button>
+                    </form>
+                </div>
+            </div>
+         </div>
+    })
+    
+    @html.block("title", function(model) {
+        <title>TSC - Create Podcast</title>
+    })
+})

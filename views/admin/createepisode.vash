@@ -1,0 +1,24 @@
+@html.extend("layout", function(model){
+    @html.block("main", function(model){
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                @if (model.message) {
+                    <p>@model.message</p>
+                }
+                <form action="/admin/episode/create" method="GET">
+                        <div class="form-group">
+                            <label for="inputId">Enter MixCloud ID</label>
+                            <input type="text" class="form-control" id="inputId" placeholder="Mixcloud ID" name="mixId">
+                        </div>
+                        <button type="submit" class="btn btn-default">Create</button>
+                    </form>
+                </div>
+            </div>
+         </div>
+    })
+    
+    @html.block("title", function(model) {
+        <title>TSC - Create Episode</title>
+    })
+})

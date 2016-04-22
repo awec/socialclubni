@@ -1,0 +1,118 @@
+@html.extend("layout", function(model){
+    @html.block("main", function(model){
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                appId      : '808904562554589',
+                xfbml      : true,
+                version    : 'v2.5'
+                });
+            };
+
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        
+        <script>window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+            
+            t._e = [];
+            t.ready = function(f) {
+                t._e.push(f);
+            };
+            
+            return t;
+            }(document, "script", "twitter-wjs"));
+        </script>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="podcastsummaryinnerpub">@model.podcast.published</div>
+                    <h2>@model.podcast.title</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-10">
+                    <h3>@model.podcast.subtitle</h3>
+                    <p>@model.podcast.summary</p>
+                    <p>Duration: @model.podcast.duration</p>
+                </div>
+                <div class="col-sm-12 col-md-2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a class="btn btn-default btn-primary btn-large" target="_blank" href="/download/@model.podcast.filename">Download Mp3</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12" style="margin-top: 10px;">
+                                <a class="twitter-share-button" href="https://twitter.com/share" data-size="large" data-text="@model.podcast.title">Share this on Twitter</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12" style="margin-top: 10px;">
+                                <div class="fb-share-button" data-width="450" data-href="http://tscnijs.azurewebsites.net/episodes/@model.podcast.stub" data-layout="button_count"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    })
+    
+    @html.block("mainbottom", function(model){
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                   @html.raw(model.embed)
+                </div>
+                <div class="col-sm-12 col-md-8">
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                        var disqus_shortname = 'thesocialclubni'; // required: replace example with your forum shortname
+                        var disqus_identifier = '@model.podcast.stub';
+                        var disqus_title = '@model.podcast.title';
+                        var disqus_category_id = '2643928';
+                        /* * * DON'T EDIT BELOW THIS LINE * * */
+                        (function () {
+                            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </div>
+            </div>
+         </div>
+    })
+    
+    @html.block("meta", function(model) {
+        <meta property="fb:app_id" content="168287576687286" />
+        <meta property="og:url" content="http://tscnijs.azurewebsites.net/episodes/@model.podcast.stub" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="@model.podcast.title" />
+        <meta property="og:description" content="@model.podcast.subtitle" />
+        <meta property="og:image" content="http://tscnijs.azurewebsites.net/img/logosmall.jpg" />
+    })
+    
+    @html.block("title", function(model) {
+        <title>TSC - @model.podcast.title</title>
+    })
+})
+
+
+

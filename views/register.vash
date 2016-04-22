@@ -1,0 +1,36 @@
+@html.extend("layout", function(model){
+    @html.block("main", function(model){
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                @if (model.message) {
+                    <p>@model.message</p>
+                }
+                    <form action="/register" method="POST">
+                        <div class="form-group">
+                            <label for="inputSecret">Registration Secret</label>
+                            <input type="text" class="form-control" id="inputSecret" placeholder="" name="signupsecret">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail">Email address</label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">Password</label>
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPasswordConfirm">Confirm Password</label>
+                            <input type="password" class="form-control" id="inputPasswordConfirm" placeholder="Password Confirmation" name="passwordConfirm">
+                        </div>
+                        <button type="submit" class="btn btn-default">Register</button>
+                    </form>
+                </div>
+            </div>
+         </div>
+    })
+    
+    @html.block("title", function(model) {
+        <title>TSC - Register</title>
+    })
+})

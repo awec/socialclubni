@@ -1,0 +1,11 @@
+@html.extend("layout", function(model){
+    @html.block("main", function(model){
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h1>Coming soon</h1>
+                </div>
+            </div>
+         </div>
+    });
+})

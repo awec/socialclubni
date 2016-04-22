@@ -1,0 +1,31 @@
+@html.extend("layout", function(model){
+    @html.block("main", function(model){
+        <div class="container">
+            <div class="row">
+                <div class="colm-sm-12">
+                    <h2>Upload Episode</h2>
+                    <p>Use the area below to upload a new episode (in .mp3 format) to the site. Simply drag the file you want into the box.</p>
+                </div>
+                <div class="col-sm-12">
+                @if (model.message) {
+                    <p>@model.message</p>
+                }
+                <script src="\lib\dropzone\dist\dropzone.js"></script>
+                <script>
+                    Dropzone.options.myAwesomeDropzone = {
+                    acceptedFiles: ".mp3"
+                    };
+                </script>
+                <link rel="stylesheet" href="/lib/dropzone/dist/dropzone.css" />
+                <form action="/create/podcast/upload"
+      class="dropzone"
+      id="my-awesome-dropzone"></form>
+                </div>
+            </div>
+         </div>
+    })
+    
+    @html.block("title", function(model) {
+        <title>TSC - Upload Episode</title>
+    })
+})
