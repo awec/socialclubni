@@ -57,6 +57,7 @@
         orchestrate.newSearchBuilder()
             .collection('episodes')
             .sort('published', 'desc')
+            .limit(100)
             .query('value.season: "' + season +'"')
             .then(function (res) {
                 var results = [];
