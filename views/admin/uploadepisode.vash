@@ -17,7 +17,7 @@
                     };
                 </script>
                 <link rel="stylesheet" href="/lib/dropzone/dist/dropzone.css" />
-                <form action="/create/podcast/upload"
+                <form action="/admin/episode/upload"
       class="dropzone"
       id="my-awesome-dropzone"></form>
                 </div>
