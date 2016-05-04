@@ -58,12 +58,14 @@
                                 
                     busboy.on('error', function(err) {
                         console.log(err);
+                        exless.submitException(error);
                     });
 
                     req.pipe(busboy);
 
                     req.on('error', function (error) {
                         //KO - handle piping errors
+                        exless.submitException(error);
                         console.log('error: ' + error);
                     });
                     req.once('end', function () {
@@ -73,6 +75,7 @@
                     });
                 }
                 else{
+                    exless.submitException(error);
                     console.log(error);
                 }
             });
