@@ -13,7 +13,10 @@
                 <script src="\lib\dropzone\dist\dropzone.js"></script>
                 <script>
                     Dropzone.options.myAwesomeDropzone = {
-                    acceptedFiles: ".mp3"
+                    acceptedFiles: ".mp3",
+                    init: function() {
+                        this.on("complete", function(file) { alert("Uploaded file."); });
+                    }
                     };
                 </script>
                 <link rel="stylesheet" href="/lib/dropzone/dist/dropzone.css" />

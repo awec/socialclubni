@@ -30,7 +30,7 @@
             res.render("admin/uploadepisode");
         });
         
-        app.post("/admin/episode/upload", function(req, res) {
+        app.post("/admin/episode/upload", isLoggedIn, function(req, res) {
             eless.submitFeatureUsage("/admin/episode/upload/POST");
             var blobService = azure.createBlobService(blobStoreName, blobStoreKey);
             
@@ -69,7 +69,11 @@
                     req.once('end', function () {
                         //OK
                         console.log('all ok');
+                        res.status(201).end();
                     });
+                }
+                else{
+                    console.log(error);
                 }
             });
         });
