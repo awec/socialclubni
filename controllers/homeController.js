@@ -66,7 +66,7 @@
         });
         
         app.get("/seasons/:season?", function(req, res){
-            var season = req.params.season || "1516";
+            var season = req.params.season || "1617";
             
             eless.submitFeatureUsage("/seasons/" + season);
             
