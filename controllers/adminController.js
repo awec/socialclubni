@@ -191,6 +191,9 @@
             else if(date.isAfter("2015-07-01T10:15:20:12Z") && date.isBefore("2016-07-01T10:15:20:12Z")){
                 return "1516";
             }
+            else if(date.isAfter("2016-07-01T10:15:20:12Z") && date.isBefore("2017-07-01T10:15:20:12Z")){
+                return "1617";
+            }
         }
     }
     
