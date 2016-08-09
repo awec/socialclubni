@@ -12,7 +12,7 @@
             .collection('episodes')
             .sort('published', 'desc')
             .limit(1)
-            .query('value.season: "1516"')
+            .query('value.season: "1617"')
             .then(function (res) {
                 next(null, res.body.results[0].value)
             })
