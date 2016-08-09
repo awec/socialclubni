@@ -23,7 +23,8 @@
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a href="/seasons">15/16</a></li>
+                            <li><a href="/seasons">16/17</a></li>
+                            <li><a href="/seasons/1516">15/16</a></li>
                             <li><a href="/seasons/1415">14/15</a></li>
                             <li><a href="/seasons/1314">13/14</a></li>
                             <li><a href="/seasons/1213">12/13</a></li>
